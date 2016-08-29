@@ -60,5 +60,10 @@ nb-configuration.xml
 gradle-app.setting
 build/
 
+## SBT
+target
+.ensime_cache
+.ensime
+
 ## OS Specific
 .DS_Store

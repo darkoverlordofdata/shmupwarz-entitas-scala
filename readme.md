@@ -2,13 +2,13 @@
 
 Using entitas & overlap2d
 
-
+Added sbt for atom-ensime, based on ajhager/libgdx-sbt-project.g8
 
 All artwork is from http://opengameart.org/ 
 
 spaceships by http://millionthvector.blogspot.com/
 
-Shmupwarz is inspired by https://github.com/Flet/spaceship-warrior-gradle, 
+Shmupwarz is inspired by https://github.com/Flet/spaceship-warrior-gradle,
 which was created using the AtemisODB entity component system
 
 
@@ -43,6 +43,6 @@ which was created using the AtemisODB entity component system
     entitas create -s ScaleTween IExecuteSystem
     entitas create -s ScoreRender IExecuteSystem
     entitas create -s SoundEffect IExecuteSystem
-    entitas create -s SpriteRender IExecuteSystem 
+    entitas create -s SpriteRender IExecuteSystem
     entitas create -s ViewManager ISystem
     entitas generate -p scala mutable=var
