@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=ShmupWarz
+Exec=java -jar /home/bruce/Git/shmupwarz-entitas-scala/desktop/build/libs/desktop-1.0.jar
+Icon=/home/bruce/Git/shmupwarz-entitas-scala/o2d/assets/orig/images/spaceshipspr.png
+Comment[en_US]=ShmupWarz
+GenericName[en_US]=ShmupWarz
