@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.darkoverlordofdata.entitas.demo.GameScene;
+import com.darkoverlordofdata.demo.Demo;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override
