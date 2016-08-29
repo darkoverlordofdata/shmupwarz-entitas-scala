@@ -59,7 +59,4 @@ class ViewManagerSystem (val game:GameScene, val pool:Pool) extends ISystem {
       sprite.setScale(scale.x, scale.y)
     }
   }
-
-
-
 }

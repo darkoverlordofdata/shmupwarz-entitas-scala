@@ -89,8 +89,9 @@ object Settings {
       ("natives-x86.jar",         new ExactFilter("libgdx.so"), base / "libs" / "x86")
     )},
     platformTarget in Android := "android-23",
-    proguardOptions in Android ++= scala.io.Source.fromFile(file("core/proguard-project.txt")).getLines.toList ++
-                                   scala.io.Source.fromFile(file("android/proguard-project.txt")).getLines.toList
+    proguardOptions in Android ++= scala.io.Source.fromFile(file("android/proguard-project.txt")).getLines.toList
+  //  proguardOptions in Android ++= scala.io.Source.fromFile(file("core/proguard-project.txt")).getLines.toList ++
+  //                                 scala.io.Source.fromFile(file("android/proguard-project.txt")).getLines.toList
   )
 
 
