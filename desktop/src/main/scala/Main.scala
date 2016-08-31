@@ -1,7 +1,7 @@
 package main.scala
 
 import com.badlogic.gdx.backends.lwjgl._
-import com.darkoverlordofdata.demo.Demo
+import com.darkoverlordofdata.shmupwarz.Shmupwarz
 
 object Main extends App {
     val cfg = new LwjglApplicationConfiguration
@@ -9,5 +9,5 @@ object Main extends App {
     cfg.height = 480
     cfg.width = 350
     cfg.forceExit = false
-    new LwjglApplication(new Demo, cfg)
+    new LwjglApplication(new Shmupwarz, cfg)
 }
