@@ -17,6 +17,7 @@ class SpriteRenderSystem (val game:GameScene, val pool:Pool) extends IExecuteSys
   val width = game.width.toFloat
   val height = game.height.toFloat
   val pixelFactor = game.pixelFactor
+  val desktop = game.desktop
   lazy val batch = new SpriteBatch()
   val camera = game.camera
   lazy val viewport = new FillViewport(width/pixelFactor, height/pixelFactor, camera)
@@ -74,8 +75,13 @@ class SpriteRenderSystem (val game:GameScene, val pool:Pool) extends IExecuteSys
   }
 
   def resize(width: Int, height: Int) = {
-    viewport.update(width,height)
-    camera.position.set(camera.viewportWidth/2f, camera.viewportHeight/2f, 0f)
+    if (desktop) {
+      viewport.update((width*game.scale).toInt, (height*game.scale).toInt)
+      camera.position.set(camera.viewportWidth/2f, camera.viewportHeight/2f, 0f)
+    } else {
+      viewport.update(width,height)
+      camera.position.set(camera.viewportWidth/2f, camera.viewportHeight/2f, 0f)
+    }
   }
 
 }

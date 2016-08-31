@@ -16,6 +16,8 @@ class PlayerInputSystem (val game:GameScene, val pool:Pool)
   val width = game.width
   val height = game.height
   val pixelFactor = game.pixelFactor
+  val desktop = game.desktop
+  val scale = game.scale
   val FireRate = .1f
 
   private var shoot = false
@@ -26,7 +28,7 @@ class PlayerInputSystem (val game:GameScene, val pool:Pool)
 
   override def initialize(): Unit = {
     Gdx.input.setInputProcessor(this)
-    pool.createPlayer(width.toFloat, height.toFloat)
+    pool.createPlayer(width/(2*game.scale), 80f)
     ()
   }
 
@@ -50,8 +52,13 @@ class PlayerInputSystem (val game:GameScene, val pool:Pool)
   }
 
   def moveTo(x: Int, y:Int) = {
-    mouseX = x/pixelFactor
-    mouseY = (height - y)/pixelFactor
+    if (desktop) {
+      mouseX = (x.toFloat/scale).toInt
+      mouseY = ((height - y).toFloat/scale).toInt
+    } else {
+      mouseX = x/pixelFactor
+      mouseY = (height - y)/pixelFactor
+    }
   }
 
   override def keyTyped(character: Char): Boolean = {

@@ -14,6 +14,8 @@ class ScoreRenderSystem (val game:GameScene, val pool:Pool) extends IExecuteSyst
   lazy val group = pool.getGroup(Matcher.allOf(Match.Player, Match.Score))
   val width = game.width
   val height = game.height
+  val desktop = game.desktop
+  val scale = game.scale
   val pixelFactor = game.pixelFactor
   val camera = game.camera
   lazy val batch = new SpriteBatch()
@@ -24,8 +26,13 @@ class ScoreRenderSystem (val game:GameScene, val pool:Pool) extends IExecuteSyst
     batch.setProjectionMatrix(camera.combined)
     batch.begin()
     val player = group.singleEntity
-    if (player != null)
-      font.draw(batch, s"${player.score.value}", width/(2f*pixelFactor), (height/pixelFactor)-10f)
+    if (player != null) {
+      if (desktop) {
+        font.draw(batch, s"${player.score.value}", width/(2f*scale), (height/scale)-10f)
+      } else {
+        font.draw(batch, s"${player.score.value}", width/(2f*pixelFactor), (height/pixelFactor)-10f)
+      }
+    }
     batch.end()
   }
 

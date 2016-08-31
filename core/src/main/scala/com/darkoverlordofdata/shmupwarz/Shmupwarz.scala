@@ -2,7 +2,7 @@ package com.darkoverlordofdata.shmupwarz
 import com.badlogic.gdx.Game
 import com.uwsoft.editor.renderer.SceneLoader
 
-class Shmupwarz extends Game {
+class Shmupwarz(val desktop:Boolean, val scale:Float) extends Game {
 
   var menuScene: MenuScene = null
   var gameScene: GameScene = null
@@ -44,7 +44,7 @@ class Shmupwarz extends Game {
     menuScene = null
     optionScene = null
     scoreScene = null
-    gameScene = new GameScene()
+    gameScene = new GameScene(desktop, scale)
     setScreen(gameScene)
   }
 

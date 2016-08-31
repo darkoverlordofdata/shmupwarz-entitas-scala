@@ -9,11 +9,14 @@ import com.uwsoft.editor.renderer.scene2d.CompositeActor
 
 class OptionUI(game: Shmupwarz, sceneLoader: SceneLoader) extends Stage {
 
-  sceneLoader.loadScene("OptionsScene", new FitViewport(320f, 480f))
+  sceneLoader.loadScene("OptionsScene", new FitViewport(350f, 480f))
 
   val backButtonVo = sceneLoader.loadVoFromLibrary("backButton")
   val backButtonActor = new CompositeActor(backButtonVo, sceneLoader.getRm)
-  val pixelFactor = if (Gdx.graphics.getDensity > 1f) 2f else 1f
+  val desktop = game.desktop
+  val scale = game.scale
+  val pixelFactor = if (desktop) scale else if (Gdx.graphics.getDensity > 1f) 2f else 1f
+  // val pixelFactor = if (Gdx.graphics.getDensity > 1f) 2f else 1f
   val col = (getWidth-backButtonActor.getWidth*pixelFactor)/2f
   val row = (pixelFactor-1f)*100f-200f*pixelFactor
 

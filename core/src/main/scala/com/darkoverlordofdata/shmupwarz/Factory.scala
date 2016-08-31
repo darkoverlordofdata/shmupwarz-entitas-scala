@@ -18,9 +18,9 @@ object Factory {
       entity
     }
 
-    def createPlayer(width: Float, height: Float): Entity = {
+    def createPlayer(x: Float, y: Float): Entity = {
       val entity = prefab("player")
-        .addPosition(width / 2, 80f)
+        .addPosition(x, y)
         .addScore(0)
         .setPlayer(true)
       entity
@@ -37,28 +37,28 @@ object Factory {
       entity
     }
 
-    def createEnemy1(width: Float, height: Float): Entity = {
+    def createEnemy1(game: GameScene, width: Float, height: Float): Entity = {
       val entity = prefab("enemy1")
       entity.addHealth(10f, 10f)
-        .addPosition(Random.nextFloat() * width, height - entity.bounds.radius)
+        .addPosition(Random.nextFloat() * (width/game.scale), (height - entity.bounds.radius*2)/game.scale)
         .addVelocity(0f, 40f)
         .setEnemy(true)
       entity
     }
 
-    def createEnemy2(width: Float, height: Float): Entity = {
+    def createEnemy2(game: GameScene, width: Float, height: Float): Entity = {
       val entity = prefab("enemy2")
       entity.addHealth(20f, 20f)
-        .addPosition(Random.nextFloat() * width, height - entity.bounds.radius)
+        .addPosition(Random.nextFloat() * (width/game.scale), (height - entity.bounds.radius*2)/game.scale)
         .addVelocity(0f, 30f)
         .setEnemy(true)
       entity
     }
 
-    def createEnemy3(width: Float, height: Float): Entity = {
+    def createEnemy3(game: GameScene, width: Float, height: Float): Entity = {
       val entity = prefab("enemy3")
       entity.addHealth(60f, 60f)
-        .addPosition(Random.nextFloat() * width, height - entity.bounds.radius)
+        .addPosition(Random.nextFloat() * (width/game.scale), (height - entity.bounds.radius*2)/game.scale)
         .addVelocity(0f, 10f)
         .setEnemy(true)
       entity

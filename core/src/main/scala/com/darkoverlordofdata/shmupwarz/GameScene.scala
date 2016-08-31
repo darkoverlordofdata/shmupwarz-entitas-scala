@@ -5,8 +5,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera
 import com.darkoverlordofdata.entitas.Pool
 import com.darkoverlordofdata.entitas.Systems
 import com.darkoverlordofdata.shmupwarz.systems._
-
-class GameScene extends Screen {
+/**
+ * @param desktop true if running on desktop
+ * @param scale float the desktop scaling
+ */
+class GameScene(val desktop:Boolean, val scale:Float) extends Screen {
 
   lazy val width:Int = { Gdx.graphics.getWidth }
   lazy val height:Int = { Gdx.graphics.getHeight }

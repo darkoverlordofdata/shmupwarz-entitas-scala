@@ -13,11 +13,15 @@ class EntitySpawningTimerSystem (val game:GameScene, val pool:Pool) extends IExe
   private var t1 = Timer1
   private var t2 = Timer2
   private var t3 = Timer3
+  val desktop = game.desktop
 
-  def toWorldX:Float = 320f/game.width
-  def toWorldY:Float = 480f/game.height
-  def width:Float = game.width*toWorldX
-  def height:Float = game.height*toWorldY
+  // def toWorldX:Float = if (desktop) 525f/game.width else 350f/game.width
+  // def toWorldY:Float = if (desktop) 360f/game.height else 480f/game.height
+  // def width:Float = game.width*toWorldX
+  // def height:Float = game.height*toWorldY
+
+  def width:Float = Gdx.graphics.getWidth.toFloat
+  def height:Float = Gdx.graphics.getHeight.toFloat
 
   object Enemies {
     sealed trait EnumVal
@@ -32,15 +36,15 @@ class EntitySpawningTimerSystem (val game:GameScene, val pool:Pool) extends IExe
     if (remaining < 0) {
       enemy match {
         case Enemies.Enemy1 => {
-          pool.createEnemy1(width, height)
+          pool.createEnemy1(game, width, height)
           Timer1
         }
         case Enemies.Enemy2 => {
-          pool.createEnemy2(width, height)
+          pool.createEnemy2(game, width, height)
           Timer2
         }
         case Enemies.Enemy3 => {
-          pool.createEnemy3(width, height)
+          pool.createEnemy3(game, width, height)
           Timer3
         }
       }

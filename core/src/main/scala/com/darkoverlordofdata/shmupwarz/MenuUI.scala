@@ -9,11 +9,13 @@ import com.uwsoft.editor.renderer.scene2d.CompositeActor
 
 class MenuUI(game: Shmupwarz, sceneLoader: SceneLoader) extends Stage() {
 
-  sceneLoader.loadScene("MenuScene", new FitViewport(320f, 480f))
+  sceneLoader.loadScene("MenuScene", new FitViewport(350f, 480f))
 
   val playButtonVo = sceneLoader.loadVoFromLibrary("playButton")
   val playButtonActor = new CompositeActor(playButtonVo, sceneLoader.getRm)
-  val pixelFactor = if (Gdx.graphics.getDensity > 1f) 2f else 1f
+  val desktop = game.desktop
+  val scale = game.scale
+  val pixelFactor = if (desktop) scale else if (Gdx.graphics.getDensity > 1f) 2f else 1f
   val col = (getWidth-playButtonActor.getWidth*pixelFactor)/2f
   val row = (pixelFactor-1f)*100f-200f*pixelFactor
 

@@ -11,11 +11,14 @@ class ScoreUI(game: Shmupwarz, sceneLoader: SceneLoader) extends Stage() {
 
   val backButtonVo = sceneLoader.loadVoFromLibrary("backButton")
   val backButtonActor = new CompositeActor(backButtonVo, sceneLoader.getRm)
-  val pixelFactor = if (Gdx.graphics.getDensity > 1f) 2f else 1f
+  val desktop = game.desktop
+  val scale = game.scale
+  val pixelFactor = if (desktop) scale else if (Gdx.graphics.getDensity > 1f) 2f else 1f
+  // val pixelFactor = if (Gdx.graphics.getDensity > 1f) 2f else 1f
   val col = (getWidth-backButtonActor.getWidth*pixelFactor)/2f
   val row = (pixelFactor-1f)*100f-200f*pixelFactor
 
-  sceneLoader.loadScene("LeaderboardScene", new FitViewport(320f, 480f))
+  sceneLoader.loadScene("LeaderboardScene", new FitViewport(350f, 480f))
 
   addActor(backButtonActor)
   backButtonActor.setX(col)
