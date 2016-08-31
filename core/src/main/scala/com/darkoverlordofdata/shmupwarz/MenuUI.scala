@@ -13,9 +13,7 @@ class MenuUI(game: Shmupwarz, sceneLoader: SceneLoader) extends Stage() {
 
   val playButtonVo = sceneLoader.loadVoFromLibrary("playButton")
   val playButtonActor = new CompositeActor(playButtonVo, sceneLoader.getRm)
-  val desktop = game.desktop
-  val scale = game.scale
-  val pixelFactor = if (desktop) scale else if (Gdx.graphics.getDensity > 1f) 2f else 1f
+  val pixelFactor = if (game.desktop) game.scale else if (Gdx.graphics.getDensity > 1f) 2f else 1f
   val col = (getWidth-playButtonActor.getWidth*pixelFactor)/2f
   val row = (pixelFactor-1f)*100f-200f*pixelFactor
 

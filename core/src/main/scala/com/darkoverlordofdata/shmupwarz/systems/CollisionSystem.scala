@@ -17,7 +17,6 @@ class CollisionSystem (val game:GameScene, val pool:Pool) extends IExecuteSystem
       for (enemy <- enemies.entities)
         if (collidesWith(bullet, enemy))
           collisionHandler(bullet, enemy)
-
   }
 
   def collidesWith(e1:Entity, e2:Entity):Boolean = {

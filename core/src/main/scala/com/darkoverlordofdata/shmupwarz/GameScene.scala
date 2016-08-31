@@ -13,7 +13,8 @@ class GameScene(val desktop:Boolean, val scale:Float) extends Screen {
 
   lazy val width:Int = { Gdx.graphics.getWidth }
   lazy val height:Int = { Gdx.graphics.getHeight }
-  lazy val pixelFactor:Int = { if (Gdx.graphics.getDensity > 1f) 2 else 1 }
+  // lazy val pixelFactor:Int = { if (Gdx.graphics.getDensity > 1f) 2 else 1 }
+  lazy val pixelFactor = if (desktop) scale else if (Gdx.graphics.getDensity > 1f) 2f else 1f
   lazy val camera:OrthographicCamera = { new OrthographicCamera(width.toFloat/pixelFactor, height.toFloat/pixelFactor) }
   lazy val pool:Pool = { new Pool(Component.TotalComponents.id) }
   lazy val spriteRenderSystem:SpriteRenderSystem = { new SpriteRenderSystem(this, pool) }

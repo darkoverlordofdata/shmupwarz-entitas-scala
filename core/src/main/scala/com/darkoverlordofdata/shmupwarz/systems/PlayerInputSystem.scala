@@ -15,7 +15,8 @@ class PlayerInputSystem (val game:GameScene, val pool:Pool)
   lazy val group = pool.getGroup(Match.Player)
   val width = game.width
   val height = game.height
-  val pixelFactor = game.pixelFactor
+  // val pixelFactor = game.pixelFactor
+  val pixelFactor:Int = { if (Gdx.graphics.getDensity > 1f) 2 else 1 }
   val desktop = game.desktop
   val scale = game.scale
   val FireRate = .1f

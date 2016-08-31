@@ -16,7 +16,8 @@ class ScoreRenderSystem (val game:GameScene, val pool:Pool) extends IExecuteSyst
   val height = game.height
   val desktop = game.desktop
   val scale = game.scale
-  val pixelFactor = game.pixelFactor
+  val pixelFactor:Int = { if (Gdx.graphics.getDensity > 1f) 2 else 1 }
+  // val pixelFactor = game.pixelFactor
   val camera = game.camera
   lazy val batch = new SpriteBatch()
   lazy val font = CreateFont("fonts/hud")

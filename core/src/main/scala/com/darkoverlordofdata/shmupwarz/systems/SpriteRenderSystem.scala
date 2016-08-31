@@ -16,7 +16,8 @@ class SpriteRenderSystem (val game:GameScene, val pool:Pool) extends IExecuteSys
   val scale = .8f
   val width = game.width.toFloat
   val height = game.height.toFloat
-  val pixelFactor = game.pixelFactor
+  val pixelFactor:Int = { if (Gdx.graphics.getDensity > 1f) 2 else 1 }
+  // val pixelFactor = game.pixelFactor
   val desktop = game.desktop
   lazy val batch = new SpriteBatch()
   val camera = game.camera
